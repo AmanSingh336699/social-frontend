@@ -9,7 +9,7 @@ import Login from './Pages/Login'
 import Register from './Pages/Register'
 import ProtectedRoute from './components/ProtectedRoute'
 import Search from './Pages/Search'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 
 function App() {
   return (
@@ -20,8 +20,7 @@ function App() {
         {/* </ProtectedRoute> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/search" element={<Search />} />
-        <Route path='/header' element={<Header />} />
+        <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
         <Route path="/messages" element={
           <ProtectedRoute><Messages /></ProtectedRoute>
         } />

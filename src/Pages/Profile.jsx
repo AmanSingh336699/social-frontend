@@ -37,11 +37,16 @@ function Profile({ userId }) {
           <p>{profile.followers.length} Followers</p>
           <p>{profile.following.length} Following</p>
         </div>
-        <div className='mt-6 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-          {profile.posts.map((post) => (
-            <PostCard post={post} key={post._id} />
-          ))}
-        </div>
+        {profile.posts.length ? (
+          <div className='mt-6 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            {profile.posts.map((post) => (
+              <PostCard post={post} key={post._id} />
+            ))}
+          </div>
+        ) : (
+          <p className='text-gray-400'>This user has not posted anything yet.</p>
+        )
+      }
     </div>
   )
 }

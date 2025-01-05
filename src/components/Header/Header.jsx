@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import { logout } from '../redux/Slices/authSlice'
-import { FaBars, FaEnvelope, FaHome, FaSearch, FaTimes, FaUserCircle } from 'react-icons/fa'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaEnvelope, FaBars, FaTimes, FaHome, FaSearch, FaUserCircle } from 'react-icons/fa'
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/Slices/authSlice";
 
 function Header() {
-    const { user } = useSelector((state) => state.auth)
-    const dispath = useDispatch()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleLogOut = () => {
-        dispath(logout())
+        dispatch(logout())
         navigate('/login')
     }
 
@@ -80,3 +79,6 @@ function Header() {
 }
 
 export default Header
+
+
+

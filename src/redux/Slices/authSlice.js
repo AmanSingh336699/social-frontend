@@ -1,12 +1,24 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../utils/axiosInstance.js";
-import axios from "axios";
+
+export const registerUser = createAsyncThunk('users/registerUser', 
+    async (userData, thunkAPI) => {
+        try {
+            const { data } = await axiosInstance.post('/users/register', userData)
+            return data.user
+        } catch (error) {
+            console.error('Register Error: ', error.response?.data || error.message)
+            return thunkAPI.rejectWithValue(
+                error.response?.data || error.message
+            )
+        }
+    }
+)
 
 export const login = createAsyncThunk('auth/login', 
     async (credentials) => {
-        const { data } = await axios.post('http://localhost:8000/users/login', credentials)
-        // return data.user
-        console.log('data: ', data)
+        const { data } = await axiosInstance.post('/users/login', credentials)
+        return data.user
     }
 )
 

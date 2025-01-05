@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { registerUser } from '../redux/Slices/usersSlice'
+import { registerUser } from '../redux/Slices/authSlice'
 import { HiEyeOff, HiEye } from 'react-icons/hi'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -25,7 +25,7 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await dispatch(registerUser(JSON.stringify(formData)))
+        await dispatch(registerUser(formData))
         navigate('/')
     }
   return (
