@@ -26,7 +26,6 @@ function Login() {
         e.preventDefault()
         await dispath(login(credentials))
         navigate(from, { replace: true })
-        console.log(credentials)
     }
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>

@@ -62,7 +62,7 @@ function Header() {
                         <FaEnvelope />
                         <span>Message</span>
                     </Link>
-                    <Link to={`/profile`} className='flex text-xl items-center space-x-2 hover:text-rose-400'>
+                    <Link to={`/profile:userId`} className='flex text-xl items-center space-x-2 hover:text-rose-400'>
                         <FaUserCircle />
                         <span>Profile</span>
                     </Link>
@@ -70,7 +70,7 @@ function Header() {
                         <FaSearch />
                         <span>Search</span>
                     </Link>
-                    
+                    <button className='flex font-bold text-xl hover:underline items-center space-x-2' onClick={handleLogOut}>Logout</button>
                 </div>
             </div>
         )}
