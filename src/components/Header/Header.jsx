@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaBars, FaTimes, FaHome, FaSearch, FaUserCircle } from 'react-icons/fa'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/Slices/authSlice";
+import { TbLogout } from "react-icons/tb"
 
 function Header() {
     const navigate = useNavigate()
@@ -33,7 +34,7 @@ function Header() {
                         <FaEnvelope />
                         <span>Message</span>
                     </Link>
-                    <Link to={`/profile`} className='flex font-bold text-xl hover:underline items-center space-x-2'>
+                    <Link to={`/profile/${userId}`} className='flex font-bold text-xl hover:underline items-center space-x-2'>
                         <FaUserCircle />
                         <span>Profile</span>
                     </Link>
@@ -41,7 +42,10 @@ function Header() {
                         <FaSearch />
                         <span>Search</span>
                     </Link>
-                    <button className='flex font-bold text-xl hover:underline items-center space-x-2' onClick={handleLogOut}>Logout</button>
+                    <div onClick={handleLogOut} className='flex font-bold text-xl hover:underline items-center space-x-2'>
+                        <TbLogout className="text-2xl"/>
+                        <span>LogOut</span>
+                    </div>                
                 </div>
                 <div className='lg:hidden'>
                     <button onClick={toggleMenu} className='flex items-center justify-center w-10 h-10 focus:outline-none'>
@@ -62,7 +66,7 @@ function Header() {
                         <FaEnvelope />
                         <span>Message</span>
                     </Link>
-                    <Link to={`/profile:userId`} className='flex text-xl items-center space-x-2 hover:text-rose-400'>
+                    <Link to={`/profile/${userId}`} className='flex text-xl items-center space-x-2 hover:text-rose-400'>
                         <FaUserCircle />
                         <span>Profile</span>
                     </Link>
@@ -70,7 +74,10 @@ function Header() {
                         <FaSearch />
                         <span>Search</span>
                     </Link>
-                    <button className='flex font-bold text-xl hover:underline items-center space-x-2' onClick={handleLogOut}>Logout</button>
+                    <div onClick={handleLogOut} className='flex font-bold text-xl hover:underline items-center space-x-2'>
+                        <TbLogout className="text-2xl"/>
+                        <span>LogOut</span>
+                    </div>                
                 </div>
             </div>
         )}

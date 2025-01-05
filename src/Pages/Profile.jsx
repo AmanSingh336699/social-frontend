@@ -5,6 +5,7 @@ import FollowButton from '../components/FollowButton'
 import PostCard from '../components/PostCard'
 import { FaUserCircle } from 'react-icons/fa'
 
+
 function Profile({ userId }) {
     const { user, profile } = useSelector(state => state.users)
   
